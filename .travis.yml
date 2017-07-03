@@ -12,7 +12,7 @@ install:
   - composer install --no-interaction --prefer-source
 
 before_script:
-  - phpenv config-add config.ini
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - mysql -u root -e 'CREATE DATABASE testing;'
   - mysql -u root -e "CREATE USER 'testing'@'127.0.0.1' IDENTIFIED BY 'testing';"
   - mysql -u root -e "GRANT ALL ON testing.* TO 'testing'@'127.0.0.1';"
@@ -20,7 +20,6 @@ before_script:
   - php vendor/bin/phinx migrate -e testing
 
 script:
-  #- php vendor/bin/tester -p php -c tests/php.ini tests/cases
   - php vendor/bin/tester -p php tests/cases
 
 after_failure:
