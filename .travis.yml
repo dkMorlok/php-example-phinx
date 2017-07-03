@@ -22,7 +22,7 @@ before_script:
   - php vendor/bin/phinx migrate -e testing
 
 script:
-  - php vendor/bin/tester -p php tests/cases
+  - php vendor/bin/tester -p php -c ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini tests/cases
 
 after_failure:
   # Print *.actual content
