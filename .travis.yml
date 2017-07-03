@@ -13,8 +13,8 @@ install:
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE testing;'
-  - mysql -u root -e "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';"
-  - mysql -u root -e "GRANT ALL ON testing.* TO 'testing'@'localhost';"
+  - mysql -u root -e "CREATE USER 'testing'@'127.0.0.1' IDENTIFIED BY 'testing';"
+  - mysql -u root -e "GRANT ALL ON testing.* TO 'testing'@'127.0.0.1';"
   - mysql -u root testing < data/database.sql
   - php vendor/bin/phinx migrate -e testing
 

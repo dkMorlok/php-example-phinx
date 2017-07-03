@@ -12,7 +12,7 @@ return [
 		'default_database' => 'testing',
 		'testing' => [
 			'adapter' => 'mysql',
-			'host' => 'localhost',
+			'host' => '127.0.0.1',
 			'name' => 'testing',
 			'user' => 'testing',
 			'pass' => 'testing',
