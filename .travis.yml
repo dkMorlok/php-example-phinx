@@ -12,6 +12,7 @@ install:
   - composer install --no-interaction --prefer-source
 
 before_script:
+  - phpenv config-add config.ini
   - mysql -u root -e 'CREATE DATABASE testing;'
   - mysql -u root -e "CREATE USER 'testing'@'127.0.0.1' IDENTIFIED BY 'testing';"
   - mysql -u root -e "GRANT ALL ON testing.* TO 'testing'@'127.0.0.1';"
