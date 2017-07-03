@@ -17,7 +17,7 @@ class MysqlTest extends TestCase
 	protected function setUp()
 	{
 		parent::setUp();
-		$this->connection = new \PDO("mysql:host=localhost;dbname=testing", 'testing', 'testing', [
+		$this->connection = new \PDO("mysql:host=127.0.0.1;dbname=testing", 'testing', 'testing', [
 			\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 		]);
 	}
