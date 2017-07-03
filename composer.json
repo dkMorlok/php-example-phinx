@@ -1,0 +1,11 @@
+{
+    "name": "dkMorlok/php-exmaple-phinx",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {
+        "robmorgan/phinx": "^0.8.1"
+    },
+    "require-dev": {
+        "nette/tester": "^1.7"
+    }
+}

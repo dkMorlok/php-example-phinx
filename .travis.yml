@@ -1,0 +1,34 @@
+language: php
+
+sudo: false
+
+php:
+  - 5.6
+
+addons:
+  mariadb: '10.0'
+
+services:
+  - mysql
+
+install:
+  - composer install --no-interaction --prefer-source
+
+before_script:
+  - mysql -u root -e 'CREATE DATABASE testing;'
+  - mysql -u root -e "CREATE USER 'testing'@'localhost' IDENTIFIED BY 'testing';"
+  - mysql -u root -e "GRANT ALL ON testing.* TO 'testing'@'localhost';"
+  - mysql -u root testing < data/database.sql
+  - php vendor/bin/phinx migrate -e testing
+
+script:
+  #- php vendor/bin/tester -p php -c tests/php.ini tests
+  - php vendor/bin/tester -p php tests
+
+after_failure:
+  # Print *.actual content
+  - 'for i in $(find tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done'
+
+cache:
+  directories:
+    - $HOME/.composer/cache
