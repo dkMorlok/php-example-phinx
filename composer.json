@@ -3,7 +3,7 @@
     "type": "project",
     "minimum-stability": "dev",
     "require": {
-        "robmorgan/phinx": "^0.8.1"
+        "robmorgan/phinx": "^0.6.0"
     },
     "require-dev": {
         "nette/tester": "^1.7"
