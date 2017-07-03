@@ -8,11 +8,13 @@ php:
 services:
   - mysql
 
+before_install:
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
 install:
   - composer install --no-interaction --prefer-source
 
 before_script:
-  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - mysql -u root -e 'CREATE DATABASE testing;'
   - mysql -u root -e "CREATE USER 'testing'@'127.0.0.1' IDENTIFIED BY 'testing';"
   - mysql -u root -e "GRANT ALL ON testing.* TO 'testing'@'127.0.0.1';"
