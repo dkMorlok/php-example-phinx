@@ -15,7 +15,7 @@ CREATE TABLE `user` (
   `role` enum('member') NOT NULL DEFAULT 'member',
   `password` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`(255)),
+  UNIQUE KEY `email` (`email`(255))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` VALUES
