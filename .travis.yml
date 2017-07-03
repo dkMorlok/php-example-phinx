@@ -13,6 +13,7 @@ before_install:
 
 install:
   - composer install --no-interaction --prefer-source
+  - npm install autoprefixer node-sass postcss postcss-cli
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE testing;'
