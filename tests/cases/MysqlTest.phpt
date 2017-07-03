@@ -5,6 +5,8 @@ namespace Test;
 use Tester\Assert;
 use Tester\TestCase;
 
+require __DIR__ . '/../bootstrap.php';
+
 class MysqlTest extends TestCase
 {
 
